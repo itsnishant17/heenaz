@@ -5,7 +5,7 @@
 //  • SVG icons on nav links (no emojis)
 //  • Montserrat font via CSS var(--font-sans)
 // ────────────────────────────────────────────────────────
-import logoBanner from '../assets/logo-banner.jpg';
+import logoBanner from '../assets/navbar-logo.jpg';
 import './Navbar.css';
 
 const links = [
