@@ -94,7 +94,7 @@ module.exports = async function handler(req, res) {
     .join('');
 
   const html = `
-    <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+    <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto;color:#1A0A10;">
       <div style="background:#3D0B20;padding:20px 24px;">
         <h2 style="color:#E8C97A;margin:0;font-weight:400;">
           ${formType === 'student' ? 'Masterclass Enquiry' : 'Booking Enquiry'}
@@ -104,16 +104,38 @@ module.exports = async function handler(req, res) {
       <table style="width:100%;border-collapse:collapse;margin-top:12px;">
         ${rows}
       </table>
+      <div style="margin-top:24px;padding-top:16px;border-top:1px solid #eee;font-size:12px;color:#888;">
+        <p style="margin:0;">This enquiry was submitted through the contact form at the Heena'z Makeovers website.</p>
+        <p style="margin:6px 0 0;">Heena'z Makeovers &middot; Jawahar Chowk, Fatehabad, Haryana 125050</p>
+      </div>
     </div>
   `;
 
+  // Plain-text fallback. Emails with only an HTML body, and no text
+  // alternative, are flagged more often by spam filters.
+  const text = [
+    formType === 'student' ? 'New Masterclass Enquiry' : 'New Booking Enquiry',
+    '',
+    ...Object.entries(fields)
+      .filter(([, value]) => value !== undefined && value !== '')
+      .map(([key, value]) => `${key}: ${value}`),
+    '',
+    'Submitted through the contact form at the Heena\'z Makeovers website.',
+    'Heena\'z Makeovers, Jawahar Chowk, Fatehabad, Haryana 125050',
+  ].join('\n');
+
   try {
     await transporter.sendMail({
-      from: `"Heena'z Makeovers Website" <${SMTP_EMAIL}>`,
+      from: `"Heena'z Makeovers" <${SMTP_EMAIL}>`,
       to: SEND_TO_EMAIL,
-      replyTo: fields.email || undefined,
+      replyTo: fields.email ? fields.email : `"Heena'z Makeovers" <${SMTP_EMAIL}>`,
       subject,
+      text,
       html,
+      headers: {
+        'X-Priority': '1',
+        'X-Mailer': 'Heenaz-Makeovers-Website',
+      },
     });
 
     return res.status(200).json({ ok: true });
