@@ -137,29 +137,3 @@ Visit `http://localhost:3000`, fill out a form, and check the inbox set in
 | `--font-sans`      | `Montserrat`             | Body text, UI                  |
 
 ---
-
-## 🧩 What Changed In This Update
-
-1. Navbar now shows the logo image plus "HEENA'Z MAKEOVERS" with
-   "Heena Beauty Parlour" as a subtitle.
-2. Hero stat updated from 500+ to 1000+ Brides Adorned.
-3. Em-dashes (—) and middle-dots (·) replaced with commas/periods
-   throughout all visible copy.
-4. Masterclass section: tier cards (1-on-1 / Group / Online) replaced
-   with a real teaching photo and caption.
-5. Booking and Masterclass forms now send real emails through a Vercel
-   serverless function instead of opening WhatsApp.
-6. Confirmed the Gallery bento grid uses 19 unique photos with zero
-   repeats.
-
----
-
-## 📱 Responsive Breakpoints
-
-| Breakpoint   | Layout changes                                          |
-|--------------|-----------------------------------------------------------|
-| `≤ 1024px`  | Gallery bento grid drops to 3 columns                     |
-| `≤ 900px`   | 2-col sections stack to 1 column; hero stacks vertically  |
-| `≤ 820px`   | Desktop nav links hide, mobile Book button appears        |
-| `≤ 640px`   | Gallery → 2 columns, form grid → single column             |
-| `≤ 420px`   | Brand text hides in navbar, logo only                      |
