@@ -20,7 +20,7 @@ import bridalRedSit   from '../assets/bridal-red-sit.jpg';
 import bridalPurple   from '../assets/bridal-purple.jpg';
 import bridalRedJhumka from '../assets/bridal-red-jhumka.jpg';
 import bridalPinkVeil2 from '../assets/bridal-pink-veil2.jpg';
-import bridalRedGarden from '../assets/bridal-red-garden.jpg';
+import heroMobile     from '../assets/bride_mobile_cover.jpg';
 import bridalRedPortrait from '../assets/bridal-red-portrait.jpg';
 import bridalRedArch  from '../assets/bridal-red-arch.jpg';
 
@@ -31,7 +31,7 @@ import './Gallery.css';
 const bentoItems = [
   { src: bridalPinkVeil,    alt: 'Bride with pink veil',        label: 'Bridal Glam',       span: [2, 2], pos: 'top' },
   { src: workCompetition,   alt: 'Heena at competition',        label: 'Award Look',        span: [1, 1], pos: 'top center' },
-  { src: bridalRedGarden,   alt: 'Bride in red, garden setting',       label: 'Red Bridal',        span: [1, 1], pos: 'top center' },
+  { src: heroMobile,        alt: 'Bride portrait',              label: 'Red Bridal',        span: [1, 1], pos: 'top center' },
   { src: workLipstick,      alt: 'Heena applying lip colour',   label: 'Lip Artistry',      span: [1, 2], pos: 'top' },
   { src: bridalPurple,      alt: 'Bride in purple lehenga',     label: 'Purple Bridal',     span: [1, 1], pos: 'top center' },
   { src: bridalPinkLeh,     alt: 'Bride in pink lehenga',       label: 'Pink Lehenga',      span: [1, 1], pos: 'top center' },
@@ -42,7 +42,7 @@ const bentoItems = [
   { src: workHair,          alt: 'Heena styling hair',          label: 'Hairstyling',       span: [1, 1], pos: 'top center' },
   { src: bridalIvory,       alt: 'Bride in ivory gown',         label: 'Ivory Elegance',    span: [1, 1], pos: 'top center' },
   { src: bridalRedPortrait, alt: 'Bride in red portrait',       label: 'Bridal Portrait',   span: [1, 1], pos: 'top center' },
-  { src: bridalRedSit,      alt: 'Bride sitting, red lehenga',         label: 'Bridal Session',    span: [1, 1], pos: 'top center' },
+  { src: bridalRedSit,      alt: 'Bride sitting, red lehenga',  label: 'Bridal Session',    span: [1, 1], pos: 'top center' },
   { src: bridalRedJhumka,   alt: 'Bride with gold jhumka',      label: 'Gold Jewellery',    span: [1, 1], pos: 'top center' },
   { src: bridalRedArch,     alt: 'Bride at carved arch',        label: 'Traditional Look',  span: [1, 1], pos: 'top center' },
   { src: heenaprofessional, alt: 'Heena professional shoot',    label: 'The Artist',        span: [2, 1], pos: 'top center' },

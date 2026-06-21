@@ -76,6 +76,10 @@
   object-position: center top;
 }
 
+/* Show desktop image by default, hide mobile image */
+.hero__img-main--mobile { display: none; }
+.hero__img-main--desktop { display: block; }
+
 .hero__img-sub {
   position: absolute;
   bottom: 0;
@@ -146,4 +150,8 @@
     width: 50%;
     height: 160px;
   }
+
+  /* Swap to the mobile-specific hero image below 900px */
+  .hero__img-main--desktop { display: none; }
+  .hero__img-main--mobile  { display: block; }
 }

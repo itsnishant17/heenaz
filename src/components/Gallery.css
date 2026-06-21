@@ -5,7 +5,7 @@
   background: var(--cream);
 }
 
-/* ── Bento grid — 4 cols desktop ─── */
+/* ── Bento grid, 4 cols desktop ─── */
 .gallery__bento {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -26,9 +26,17 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: var(--pos-mobile, top center);
   display: block;
   transition: transform 0.55s ease;
+}
+
+/* Desktop-specific crop positions, only above 900px.
+   Falls back to the mobile position if no desktop override is set. */
+@media (min-width: 901px) {
+  .gallery__cell img {
+    object-position: var(--pos-desktop, top center);
+  }
 }
 
 .gallery__cell:hover img {
@@ -65,7 +73,7 @@
   font-weight: 400;
 }
 
-/* ── Tablet: 3 cols ───────────────── */
+/* ── Tablet, 3 cols ───────────────── */
 @media (max-width: 1024px) {
   .gallery__bento {
     grid-template-columns: repeat(3, 1fr);
@@ -73,7 +81,7 @@
   }
 }
 
-/* ── Mobile: 2 cols, no spans ──────── */
+/* ── Mobile, 2 cols, no spans ──────── */
 @media (max-width: 640px) {
   .gallery__bento {
     grid-template-columns: repeat(2, 1fr);

@@ -1,6 +1,7 @@
 // src/components/Hero.jsx
 import FadeIn from './FadeIn';
 import heroMain   from '../assets/heena-professional.jpg';
+import heroMobile from '../assets/bride_mobile_cover.jpg';
 import heroSub    from '../assets/bridal-pink-veil.jpg';
 import './Hero.css';
 
@@ -25,10 +26,17 @@ export default function Hero() {
 
       {/* ── Right image collage ── */}
       <FadeIn className="hero__visual">
+        {/* Desktop / tablet hero image */}
         <img
-          className="hero__img-main"
+          className="hero__img-main hero__img-main--desktop"
           src={heroMain}
           alt="Heena doing makeup at competition"
+        />
+        {/* Mobile-only hero image, swapped in via CSS at narrow widths */}
+        <img
+          className="hero__img-main hero__img-main--mobile"
+          src={heroMobile}
+          alt="Bride portrait"
         />
         <img
           className="hero__img-sub"
