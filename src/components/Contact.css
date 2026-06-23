@@ -132,6 +132,16 @@
   color: var(--plum);
 }
 
+.contact__social-link {
+  color: var(--plum);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.contact__social-link:hover {
+  color: var(--gold);
+}
+
 /* ── Responsive ───────────────────── */
 @media (max-width: 900px) {
   .contact__grid {

@@ -40,6 +40,42 @@ const services = [
     desc: 'Bridal buns, waves, updos, and modern styles perfectly complementing your complete look.',
     price: 'Add-on or standalone',
   },
+  {
+    iconId: 'icon-droplet',
+    name: 'Skin Treatment',
+    desc: 'Customized facials and skin therapies that prep your complexion for a radiant, camera-ready glow.',
+    price: 'Pre-bridal packages available',
+  },
+  {
+    iconId: 'icon-flask',
+    name: 'Hair Chemical Work',
+    desc: 'Smoothening, straightening, keratin, and colour treatments tailored to your hair type and texture.',
+    price: 'Consultation included',
+  },
+  {
+    iconId: 'icon-nail',
+    name: 'Nail Extension',
+    desc: 'Gel and acrylic nail extensions with custom nail art, finished to match your bridal or party look.',
+    price: 'Add-on or standalone',
+  },
+  {
+    iconId: 'icon-eyebrow',
+    name: 'Permanent Eyebrow',
+    desc: 'Microblading and semi-permanent eyebrow shaping for naturally defined brows that last.',
+    price: 'By appointment',
+  },
+  {
+    iconId: 'icon-extension',
+    name: 'Permanent Hair Extension',
+    desc: 'Seamless, long-lasting hair extensions for fuller length and volume on any occasion.',
+    price: 'By appointment',
+  },
+  {
+    iconId: 'icon-leaf',
+    name: 'Facial & Skin Glow',
+    desc: 'Deep-cleansing and brightening facials designed to refresh your skin before any celebration.',
+    price: 'Single session or packages',
+  },
 ];
 
 export default function Services() {

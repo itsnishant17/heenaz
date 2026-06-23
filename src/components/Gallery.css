@@ -22,21 +22,20 @@
   border-radius: 2px;
 }
 
+/* Hide specific tiles on mobile only, desktop keeps them visible */
+@media (max-width: 640px) {
+  .gallery__cell--hide-mobile {
+    display: none;
+  }
+}
+
 .gallery__cell img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--pos-mobile, top center);
+  object-position: top center;
   display: block;
   transition: transform 0.55s ease;
-}
-
-/* Desktop-specific crop positions, only above 900px.
-   Falls back to the mobile position if no desktop override is set. */
-@media (min-width: 901px) {
-  .gallery__cell img {
-    object-position: var(--pos-desktop, top center);
-  }
 }
 
 .gallery__cell:hover img {
@@ -93,6 +92,11 @@
   .gallery__cell {
     grid-column: span 1 !important;
     grid-row: span 1 !important;
+  }
+
+  /* Hide this specific tile only on mobile */
+  .gallery__cell--hide-mobile {
+    display: none;
   }
 }
 

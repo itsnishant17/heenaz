@@ -1,64 +1,90 @@
-// src/components/Contact.jsx, SVG icons from sprite
 import FadeIn from './FadeIn';
 import './Contact.css';
 
-const contactItems = [
-  { iconId: 'icon-whatsapp', label: 'WhatsApp',       value: '+91 98969-01992',                       href: 'https://wa.me/919896901992', filled: true },
-  { iconId: 'icon-phone',    label: 'Phone / Call',    value: '+91 94161-43320',                       href: 'tel:+919416143320',          filled: false },
-  { iconId: 'icon-map-pin',  label: 'Studio Address',  value: 'Jawahar Chowk, Fatehabad, Haryana 125050', href: null,                filled: false },
-  { iconId: 'icon-clock',    label: 'Studio Hours',    value: 'Mon–Sat: 9:00 AM – 8:00 PM\nSunday: By appointment only', href: null,   filled: false },
-];
+const INSTAGRAM_URL = 'https://www.instagram.com/heena_beauty_parlour_fatehabad';
 
 export default function Contact() {
   return (
     <section className="contact">
       <div className="contact__grid">
 
-        {/* ── Info column ── */}
         <FadeIn>
           <p className="section-label">Find Us</p>
-          <h2 className="section-heading">
-            Visit the <em>Studio</em>
-          </h2>
+          <h2 className="section-heading">Visit the <em>Studio</em></h2>
 
           <ul className="contact__list">
-            {contactItems.map((c) => (
-              <li key={c.label} className="contact__item">
-                <div className="contact__icon-box">
-                  <svg
-                    className={`icon icon-md${c.filled ? ' icon-filled' : ''}`}
-                    style={{ stroke: c.filled ? 'none' : 'var(--gold)', fill: c.filled ? 'var(--gold)' : 'none' }}
-                    aria-hidden="true"
-                  >
-                    <use href={`#${c.iconId}`} />
-                  </svg>
-                </div>
-                <div>
-                  <p className="contact__item-label">{c.label}</p>
-                  <p className="contact__item-value" style={{ whiteSpace: 'pre-line' }}>
-                    {c.href ? <a href={c.href}>{c.value}</a> : c.value}
-                  </p>
-                </div>
-              </li>
-            ))}
+
+            <li className="contact__item">
+              <div className="contact__icon-box">
+                <svg className="icon icon-md icon-filled" style={{ fill: 'var(--gold)' }} aria-hidden="true">
+                  <use href="#icon-whatsapp" />
+                </svg>
+              </div>
+              <div>
+                <p className="contact__item-label">WhatsApp</p>
+                <p className="contact__item-value"><a href="https://wa.me/919896901992">+91 98969-01992</a></p>
+              </div>
+            </li>
+
+            <li className="contact__item">
+              <div className="contact__icon-box">
+                <svg className="icon icon-md" style={{ stroke: 'var(--gold)' }} aria-hidden="true">
+                  <use href="#icon-phone" />
+                </svg>
+              </div>
+              <div>
+                <p className="contact__item-label">Phone / Call</p>
+                <p className="contact__item-value"><a href="tel:+919416143320">+91 94161-43320</a></p>
+              </div>
+            </li>
+
+            <li className="contact__item">
+              <div className="contact__icon-box">
+                <svg className="icon icon-md" style={{ stroke: 'var(--gold)' }} aria-hidden="true">
+                  <use href="#icon-map-pin" />
+                </svg>
+              </div>
+              <div>
+                <p className="contact__item-label">Studio Address</p>
+                <p className="contact__item-value">Jawahar Chowk, Fatehabad, Haryana 125050</p>
+              </div>
+            </li>
+
+            <li className="contact__item">
+              <div className="contact__icon-box">
+                <svg className="icon icon-md" style={{ stroke: 'var(--gold)' }} aria-hidden="true">
+                  <use href="#icon-clock" />
+                </svg>
+              </div>
+              <div>
+                <p className="contact__item-label">Studio Hours</p>
+                <p className="contact__item-value">Mon to Sat: 9:00 AM to 8:00 PM</p>
+                <p className="contact__item-value">Sunday: By appointment only</p>
+              </div>
+            </li>
+
+            <li className="contact__item">
+              <div className="contact__icon-box">
+                <svg className="icon icon-md" style={{ stroke: 'var(--gold)' }} aria-hidden="true">
+                  <use href="#icon-instagram" />
+                </svg>
+              </div>
+              <div>
+                <p className="contact__item-label">Instagram</p>
+                <p className="contact__item-value"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">@heena_beauty_parlour_fatehabad</a></p>
+              </div>
+            </li>
+
           </ul>
         </FadeIn>
 
-        {/* ── Map & social column ── */}
         <FadeIn>
           <div className="contact__map">
-            <svg className="icon icon-xl" style={{ stroke: 'var(--gold-light)', fill: 'none' }}>
+            <svg className="icon icon-xl" style={{ stroke: 'var(--gold-light)' }}>
               <use href="#icon-map-pin" />
             </svg>
             <p className="contact__map-text">Jawahar Chowk, Fatehabad, Haryana</p>
-            <a
-              href="https://maps.google.com/?q=Jawahar+Chowk+Fatehabad+Haryana"
-              target="_blank"
-              rel="noreferrer"
-              className="contact__map-link"
-            >
-              Open in Google Maps →
-            </a>
+            <a href="https://maps.google.com/?q=Jawahar+Chowk+Fatehabad+Haryana" target="_blank" rel="noreferrer" className="contact__map-link">Open in Google Maps</a>
           </div>
 
           <div className="contact__social">
@@ -69,9 +95,10 @@ export default function Contact() {
               <p className="contact__social-label">Follow Our Work</p>
             </div>
             <p className="contact__social-text">
-              See the latest bridal looks and masterclass highlights on
-              Instagram and Facebook. Search{' '}
-              <strong>@HeenazMakeovers</strong> to stay inspired.
+              See the latest bridal looks and masterclass highlights on Instagram.
+            </p>
+            <p className="contact__social-text">
+              Follow <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="contact__social-link">@heena_beauty_parlour_fatehabad</a> to stay inspired.
             </p>
           </div>
         </FadeIn>
