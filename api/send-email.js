@@ -53,6 +53,18 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ ok: false, error: 'Server email is not configured' });
   }
 
+  // TEMPORARY DIAGNOSTIC — remove after debugging.
+  // Never logs the actual password, only safe metadata about it.
+  console.log('SMTP DEBUG', {
+    emailValue: SMTP_EMAIL,
+    emailLength: SMTP_EMAIL.length,
+    passLength: SMTP_APP_PASS.length,
+    passHasSpaces: SMTP_APP_PASS.includes(' '),
+    passFirstChar: SMTP_APP_PASS[0],
+    passLastChar: SMTP_APP_PASS[SMTP_APP_PASS.length - 1],
+    sendToValue: SEND_TO_EMAIL,
+  });
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
