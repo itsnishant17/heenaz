@@ -5,6 +5,12 @@
   background: var(--cream);
 }
 
+/* Stacked galleries (Bridal / Party / Punjabi) share one flow —
+   drop the doubled padding so the spacing between grids stays even. */
+.gallery + .gallery {
+  padding-top: 0;
+}
+
 /* ── Uniform portrait grid, 4 cols desktop ─── */
 .gallery__grid {
   display: grid;
