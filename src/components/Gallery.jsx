@@ -36,7 +36,7 @@ import punjabiPurpleSaree from '../assets/punjabi-purple-saree.jpg';
 import punjabiRedSide   from '../assets/punjabi-red-side.jpg';
 import punjabiRedClassic from '../assets/punjabi-red-classic.jpg';
 import punjabiTeal      from '../assets/punjabi-teal.jpg';
-import punjabiMehndi    from '../assets/punjabi-mehndi-gown.jpg';
+import punjabiPink      from '../assets/punjabi-pink-lehenga.jpg';
 
 import './Gallery.css';
 
@@ -95,7 +95,7 @@ const sections = [
       { src: punjabiRedSide,    alt: 'Red bridal side profile',    label: 'Classic Red',    pos: 'center 18%' },
       { src: punjabiTeal,       alt: 'Bride in teal lehenga',      label: 'Festive Glam',   pos: 'center 16%' },
       { src: punjabiPurpleSaree,alt: 'Bride in purple saree',      label: 'Punjabi Suit',   pos: 'center 18%' },
-      { src: punjabiMehndi,     alt: 'Mehndi function look',       label: 'Mehndi Glam',    pos: 'center 12%' },
+      { src: punjabiPink,       alt: 'Bride in pink lehenga',      label: 'Pink Glam',      pos: 'center 20%' },
       { src: punjabiRedClassic, alt: 'Traditional red bride',      label: 'Bridal Glow',    pos: 'center 22%' },
     ],
   },
