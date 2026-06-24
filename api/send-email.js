@@ -1,22 +1,15 @@
 // api/send-email.js
 //
-// Vercel Serverless Function — runs automatically when the frontend
-// calls POST /api/send-email. No separate backend hosting needed:
-// Vercel deploys everything in /api as its own serverless endpoint
-// alongside the React build, in a single `vercel` deploy.
+// Vercel Serverless Function, runs automatically when the frontend
+// calls POST /api/send-email. No separate backend hosting needed.
 //
-// ── Required Environment Variables (set in Vercel dashboard) ──────
+// Required Environment Variables (set in Vercel dashboard):
 //   SMTP_EMAIL     -> the Gmail address sending the mail
-//   SMTP_APP_PASS  -> the 16-character Gmail App Password (NOT your normal password)
+//   SMTP_APP_PASS  -> the 16-character Gmail App Password
 //   SEND_TO_EMAIL  -> where booking/enrollment enquiries should land
-//
-// Locally: create a `.env` file (already in .gitignore) with the same
-// three variables, then run `vercel dev` to test this function.
-// ────────────────────────────────────────────────────────────────────
 
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
-// Basic sanitisation so form input can't break out of the HTML email
 function escapeHtml(str = '') {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -26,8 +19,7 @@ function escapeHtml(str = '') {
     .replace(/'/g, '&#039;');
 }
 
-module.exports = async function handler(req, res) {
-  // CORS — allow the form to be called from the deployed site or localhost
+export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -46,7 +38,6 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Missing formType or fields' });
   }
 
-  // Very small required-field check so empty spam submissions are rejected early
   if (!fields.name || !fields.phone) {
     return res.status(400).json({ ok: false, error: 'Name and phone are required' });
   }
@@ -54,7 +45,11 @@ module.exports = async function handler(req, res) {
   const { SMTP_EMAIL, SMTP_APP_PASS, SEND_TO_EMAIL } = process.env;
 
   if (!SMTP_EMAIL || !SMTP_APP_PASS || !SEND_TO_EMAIL) {
-    console.error('Missing SMTP environment variables');
+    console.error('Missing SMTP environment variables', {
+      hasEmail: !!SMTP_EMAIL,
+      hasPass: !!SMTP_APP_PASS,
+      hasTo: !!SEND_TO_EMAIL,
+    });
     return res.status(500).json({ ok: false, error: 'Server email is not configured' });
   }
 
@@ -68,10 +63,9 @@ module.exports = async function handler(req, res) {
 
   const subject =
     formType === 'student'
-      ? `New Masterclass Enquiry — ${fields.name}`
-      : `New Booking Enquiry — ${fields.name}`;
+      ? `New Masterclass Enquiry - ${fields.name}`
+      : `New Booking Enquiry - ${fields.name}`;
 
-  // Build a clean two-column HTML table from whatever fields were sent
   const rows = Object.entries(fields)
     .filter(([, value]) => value !== undefined && value !== '')
     .map(
@@ -113,6 +107,6 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error('Email send failed:', err);
-    return res.status(500).json({ ok: false, error: 'Failed to send email' });
+    return res.status(500).json({ ok: false, error: 'Failed to send email', detail: err.message });
   }
-};
+}
