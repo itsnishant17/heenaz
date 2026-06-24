@@ -1,0 +1,56 @@
+/* src/components/Testimonials.css */
+
+.testimonials {
+  padding: var(--section-pad);
+  background: var(--warm-white);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+/* ── Card ─────────────────────────── */
+.testimonials__card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 1.8rem;
+}
+
+.testimonials__quote {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  line-height: 0.5;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials__stars {
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.9rem;
+}
+
+.testimonials__text {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+}
+
+.testimonials__name {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+
+.testimonials__occasion {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}

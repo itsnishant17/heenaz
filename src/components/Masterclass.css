@@ -1,0 +1,99 @@
+/* src/components/Masterclass.css */
+
+.masterclass {
+  padding: var(--section-pad);
+  background: var(--plum-deep);
+}
+
+.masterclass__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ── Left copy ────────────────────── */
+.masterclass__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.8rem;
+}
+
+.masterclass__sub {
+  font-size: 0.9rem;
+  color: rgba(253, 248, 242, 0.65);
+  line-height: 1.85;
+  margin-bottom: 1.8rem;
+  max-width: 46ch;
+}
+
+/* ── Pills ────────────────────────── */
+.masterclass__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.masterclass__pill {
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+}
+
+/* ── Teaching photo ───────────────── */
+.masterclass__photo-frame {
+  position: relative;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 12px;
+}
+
+.masterclass__photo {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.masterclass__photo-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 28px;
+  background: rgba(61, 11, 32, 0.88);
+  backdrop-filter: blur(6px);
+  padding: 1rem 1.3rem;
+  border-left: 2px solid var(--gold);
+}
+
+.masterclass__photo-caption-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-pale);
+}
+
+.masterclass__photo-caption-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-top: 0.2rem;
+}
+
+/* ── Responsive ───────────────────── */
+@media (max-width: 900px) {
+  .masterclass__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .masterclass__photo {
+    height: 320px;
+  }
+}

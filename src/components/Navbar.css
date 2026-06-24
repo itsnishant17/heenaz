@@ -1,0 +1,135 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 5vw;
+  background: rgba(253, 248, 242, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Brand / Logo block ────────────── */
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* circular crop of the logo image showing just the Hm monogram */
+.navbar__logo-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--gold);
+  flex-shrink: 0;
+  background: var(--plum-deep);
+  /* shift the image so the Hm circle mark is centred */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo-img {
+  width: 120%;         /* scale up a bit so logo fills the circle */
+  height: 120%;
+  object-fit: cover;
+  object-position: 50% 45%; /* centre on the Hm emblem */
+  display: block;
+}
+
+/* Text stack beside the logo */
+.navbar__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.navbar__brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--plum-deep);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.navbar__brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  color: var(--gold);
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+/* ── Nav links ─────────────────────── */
+.navbar__links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.navbar__links a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.navbar__links a:hover { color: var(--gold); }
+.navbar__links a:hover::after { transform: scaleX(1); }
+
+/* ── Mobile Book CTA ───────────────── */
+.navbar__cta {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  background: var(--plum);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.navbar__cta:hover { background: var(--plum-soft); }
+
+/* ── Responsive ────────────────────── */
+@media (max-width: 820px) {
+  .navbar__links { display: none; }
+  .navbar__cta   { display: inline-flex; }
+}
+
+@media (max-width: 420px) {
+  .navbar__brand-text { display: none; }
+  .navbar__logo-wrap  { width: 40px; height: 40px; }
+}

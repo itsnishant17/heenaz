@@ -1,0 +1,183 @@
+/* ─────────────────────────────────────────────────────
+   src/index.css  —  Global reset + design tokens
+   Fonts: Cormorant Garamond + Montserrat
+   (Recommended by UI Pro Max skill — Luxury Serif category)
+───────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Brand colours ────────────────────────────── */
+  --gold:          #C9A84C;
+  --gold-light:    #E8C97A;
+  --gold-pale:     #F5E9C8;
+  --plum:          #6B1A3A;
+  --plum-deep:     #3D0B20;
+  --plum-soft:     #9B2D55;
+  --cream:         #FDF8F2;
+  --warm-white:    #FAF5EE;
+
+  /* ── Text ─────────────────────────────────────── */
+  --text-dark:     #1A0A10;
+  --text-mid:      #5C3048;
+  --text-light:    #9C7088;
+
+  /* ── Borders ──────────────────────────────────── */
+  --border:        rgba(201, 168, 76, 0.22);
+  --border-strong: rgba(201, 168, 76, 0.50);
+
+  /* ── Typography (UI Pro Max: Luxury Serif) ────── */
+  --font-serif:    'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  --font-sans:     'Montserrat', system-ui, sans-serif;
+
+  /* ── Spacing ──────────────────────────────────── */
+  --section-pad:   5.5rem 5vw;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--text-dark);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a  { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+ul  { list-style: none; }
+button { font-family: var(--font-sans); cursor: pointer; }
+input, select, textarea {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  outline: none;
+}
+
+/* ════════════════════════════════════════════════
+   SVG ICON SYSTEM
+   Usage: <svg className="icon icon-md"><use href="#icon-NAME"/></svg>
+   All icons are defined once in App.jsx <SvgSprite>
+════════════════════════════════════════════════ */
+.icon { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.icon-sm  { width: 16px; height: 16px; }
+.icon-md  { width: 20px; height: 20px; }
+.icon-lg  { width: 24px; height: 24px; }
+.icon-xl  { width: 32px; height: 32px; }
+.icon-gold { stroke: var(--gold); }
+.icon-plum { stroke: var(--plum); }
+.icon-white { stroke: white; }
+.icon-filled { fill: currentColor; stroke: none; }
+
+/* ════════════════════════════════════════════════
+   SHARED UTILITY CLASSES
+════════════════════════════════════════════════ */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 300;
+  color: var(--plum-deep);
+  line-height: 1.15;
+  margin-bottom: 1.8rem;
+}
+.section-heading em { font-style: italic; color: var(--plum-soft); }
+.section-heading--light { color: var(--gold-pale); }
+.section-heading--light em { color: var(--gold); }
+
+/* ════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  padding: 0.82rem 2rem;
+  transition: background 0.25s, transform 0.2s, color 0.2s, border-color 0.2s;
+  font-family: var(--font-sans);
+}
+.btn-primary { background: var(--plum); color: var(--gold-pale); }
+.btn-primary:hover { background: var(--plum-soft); transform: translateY(-1px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--plum);
+  border: 1px solid var(--border-strong);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-gold { background: var(--gold); color: var(--plum-deep); font-weight: 600; }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* ════════════════════════════════════════════════
+   DIVIDER
+════════════════════════════════════════════════ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 5vw;
+  color: var(--gold);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ════════════════════════════════════════════════
+   FADE-IN ANIMATION
+════════════════════════════════════════════════ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ════════════════════════════════════════════════
+   WHATSAPP FLOAT BUTTON
+════════════════════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,211,102,0.55), 0 4px 12px rgba(0,0,0,0.18);
+}
+.wa-float:active { transform: scale(0.97); }

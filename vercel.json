@@ -1,0 +1,13 @@
+{
+  "buildCommand": "react-scripts build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
