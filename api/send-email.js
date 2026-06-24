@@ -8,7 +8,7 @@
 //   SMTP_APP_PASS  -> the 16-character Gmail App Password
 //   SEND_TO_EMAIL  -> where booking/enrollment enquiries should land
 
-import nodemailer from 'nodemailer';
+const nodemailer = require('nodemailer');
 
 function escapeHtml(str = '') {
   return String(str)
@@ -19,7 +19,7 @@ function escapeHtml(str = '') {
     .replace(/'/g, '&#039;');
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -109,4 +109,4 @@ export default async function handler(req, res) {
     console.error('Email send failed:', err);
     return res.status(500).json({ ok: false, error: 'Failed to send email', detail: err.message });
   }
-}
+};
