@@ -73,7 +73,7 @@ const sections = [
     title: 'Every Party, A ',
     em: 'Showstopper',
     items: [
-      { src: partyPink,    alt: 'Pink reception glam',        label: 'Reception Glam',  pos: 'center 28%' },
+      { src: punjabiTeal,  alt: 'Bride in teal lehenga',      label: 'Reception Glam',  pos: 'center 16%' },
       { src: partySage,    alt: 'Sage embroidered gown',      label: 'Evening Gown',    pos: 'center 20%' },
       { src: partyCream,   alt: 'Cream anarkali look',        label: 'Anarkali Charm',  pos: 'center 18%' },
       { src: partyDuoGlam, alt: 'Two-model glam shoot',       label: 'Glam Duo',        pos: 'center 28%' },
@@ -93,7 +93,7 @@ const sections = [
       { src: punjabiRedBride,   alt: 'Punjabi bride in red',       label: 'Red Bridal',     pos: 'center 14%' },
       { src: punjabiPurpleSuit, alt: 'Bride in purple suit',       label: 'Chooda & Kalire',pos: 'center 20%' },
       { src: punjabiRedSide,    alt: 'Red bridal side profile',    label: 'Classic Red',    pos: 'center 18%' },
-      { src: punjabiTeal,       alt: 'Bride in teal lehenga',      label: 'Festive Glam',   pos: 'center 16%' },
+      { src: partyPink,         alt: 'Pink reception glam',        label: 'Festive Glam',   pos: 'center 28%' },
       { src: punjabiPurpleSaree,alt: 'Bride in purple saree',      label: 'Punjabi Suit',   pos: 'center 18%' },
       { src: punjabiPink,       alt: 'Bride in pink lehenga',      label: 'Pink Glam',      pos: 'center 20%' },
       { src: punjabiRedClassic, alt: 'Traditional red bride',      label: 'Bridal Glow',    pos: 'center 22%' },
