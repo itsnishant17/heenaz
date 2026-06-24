@@ -21,6 +21,7 @@ const initialState = {
 export default function StudentForm() {
   const [fields, setFields] = useState(initialState);
   const [status, setStatus] = useState('idle');
+  const [errorDetail, setErrorDetail] = useState('');
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -31,11 +32,13 @@ export default function StudentForm() {
     e.preventDefault();
 
     if (!fields.name || !fields.phone) {
+      setErrorDetail('Name and phone are required');
       setStatus('error');
       return;
     }
 
     setStatus('sending');
+    setErrorDetail('');
 
     try {
       const res = await fetch('/api/send-email', {
@@ -44,12 +47,20 @@ export default function StudentForm() {
         body: JSON.stringify({ formType: 'student', fields }),
       });
 
-      if (!res.ok) throw new Error('Request failed');
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        console.error('Server responded with error:', data);
+        setErrorDetail(data.error || data.detail || 'Unknown server error');
+        setStatus('error');
+        return;
+      }
 
       setStatus('success');
       setFields(initialState);
     } catch (err) {
       console.error(err);
+      setErrorDetail(err.message);
       setStatus('error');
     }
   }
@@ -219,7 +230,7 @@ export default function StudentForm() {
       )}
       {status === 'error' && (
         <p className="form-feedback form-feedback--error">
-          Something went wrong. Please check the required fields, or call us directly.
+          Something went wrong{errorDetail ? `: ${errorDetail}` : ''}. Please check the required fields, or call us directly.
         </p>
       )}
     </form>
